@@ -1,17 +1,16 @@
 #include <stdio.h>
 /**
- *main - entry point
- *Return: 0 always
+ * main - Entry point
+ * Description: This program prints the alphabets in lowercase
+ * Return: 0 - always
  */
 int main(void)
 {
-int n;
-srand(time(0));
-n = rand() - RAND_MAX / 2;
-int ch;
-	for (ch = 97; ch <= 122; ch++)
-	putchar(ch);
-	putchar(10); /* this is an ascii code for new line */
-
+char alpha = 'a';
+while (alpha <= 'z')
+{
+putchar(alpha);
+alpha++;
+putchar(10);
 return (0);
 }
