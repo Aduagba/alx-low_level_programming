@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * main - Entry point
- * Return: always 0 (success)
+ * times_table - Entry point
+ * multiplication of 9
+ *  Return: always 0 (success)
  */
 
 void times_table(void)
