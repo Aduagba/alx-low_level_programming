@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * reset_to_98 - update reference of a pointer
  * @n: update pointer n
