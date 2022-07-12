@@ -1,14 +1,16 @@
 #include "main.h"
-#include <string.h>
 /**
- * _puts - puts function
- * @str: _puts parameter
+ * _puts - prints a string
+ * @str: the string
+ * Return: the length of the string
  */
 void _puts(char *str)
 {
-for (; *str != '\0'; str++)
+	int i = 0;
+while (str[i] != '\0')
 {
-_putchar(*str);
+	_putchar(str[i]);
+	i++;
 }
 _putchar('\n');
 }
