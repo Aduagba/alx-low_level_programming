@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- *_strcmp - a function that compares two strings
- @s1: The function of strings
+ * _strcmp - a function that compares two strings
+ * @s1: The function of strings
  * @s2: The function of strcmp
  * Return: Always 0.
  */
