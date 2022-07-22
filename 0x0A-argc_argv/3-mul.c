@@ -64,4 +64,4 @@ int main(int argc, char *argv[])
 	}
 
 	num1 = _atoi(argv[1]);
-
+}
