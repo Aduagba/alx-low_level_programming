@@ -1,43 +1,47 @@
 #include "hash_tables.h"
 
 /**
-  * hash_table_set - adda an element to the hash table.
-  * @ht: has tab;e to add or update the key value to
-  * @key: key (string cannot be empty).
-  * @value: associated with key, (can be an empty string).
-  *
-  * Return: 1 if successful 0 if not.
-  */
+ * hash_table_set - Hash table function
+ * @ht: pointer to start of table
+ * @key: key value of element
+ * @value: value of key element
+ *
+ * Description: add an element to the hash table
+ * Return: 1 for success or 0 otherwise
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *hash_node, *temp;
+	hash_node_t *ptr = NULL, *node = NULL;
 	unsigned long int index;
 
-	if (ht == NULL || key == NULL || strlen(key) == 0)
+	if (!ht || !key || !*key || !value)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
+	ptr = ht->array[index];
 
-	temp = ht->array[index];
-
-	while (temp != NULL)
+	while (ptr)
 	{
-		if (strcmp(key, temp->key) == 0)
+		if (strcmp(ptr->key, key) == 0)
 		{
-			free(temp->value);
-			temp->value = strdup(value);
+			free(ptr->value);
+			ptr->value = strdup(value);
 			return (1);
 		}
-		temp = temp->next;
+		ptr = ptr->next;
 	}
 
-	hash_node = malloc(sizeof(hash_node_t));
-	if (hash_node == NULL)
-		return (0);
 
-	hash_node->key = strdup(key);
-	hash_node->value = strdup(value);
-	hash_node->next = ht->array[index];
-	ht->array[index] = hash_node;
+	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+	{
+		free(node);
+		return (0);
+	}
+
+	node->key = strdup(key);
+	node->value = strdup(value);
+	node->next = ht->array[index];
+	ht->array[index] = node;
 	return (1);
 }
